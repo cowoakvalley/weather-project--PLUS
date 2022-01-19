@@ -29,7 +29,7 @@ body {
 }
 .table {
   border-color: rgb(55, 156, 196);
-  margin: 0px, 0px, 0px, 0px;
+  margin: 0 auto;
   width: 600px;
 }
 
