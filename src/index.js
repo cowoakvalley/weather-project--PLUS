@@ -1,35 +1,39 @@
 //Feature #1 - Time and date
-let now = new Date();
-let date = document.querySelector("#date");
+function currentTime() {
+  let now = new Date();
+  let date = document.querySelector("#date");
 
-let hours = now.getHours();
-if (hours < 10) {
-  hours = "0" + hours;
+  let hours = now.getHours();
+  if (hours < 10) {
+    hours = "0" + hours;
+  }
+
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
+
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[now.getDay()];
+
+  date.innerHTML = `${day} ${hours}:${minutes}`;
 }
-
-let minutes = now.getMinutes();
-if (minutes < 10) {
-  minutes = "0" + minutes;
-}
-
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = days[now.getDay()];
-
-date.innerHTML = `${day} ${hours}:${minutes}`;
+currentTime();
 
 // search city
 function whichCity(event) {
   event.preventDefault();
   let city = document.querySelector("#city-input").value;
   searchCity(city);
+  currentTime();
 }
 
 function searchCity(city) {
@@ -40,7 +44,6 @@ function searchCity(city) {
 }
 
 function displayWeather(response) {
-  console.log(response);
   document.querySelector("#city-header").innerHTML = response.data.name;
   document.querySelector("#current-temperature").innerHTML = Math.round(
     response.data.main.temp
