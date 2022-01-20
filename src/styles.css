@@ -96,8 +96,22 @@ th {
   font-size: 30px;
 }
 
-#celcius-fahrenheit {
+a {
   font-size: 20px;
+  color: rgb(55, 156, 196);
+  text-decoration: none;
+  font-weight: 300;
+}
+
+.active {
+  cursor: default;
+  color: rgb(55, 156, 196);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.active:hover {
+  color: rgb(38, 103, 129);
 }
 
 .date {
@@ -112,9 +126,4 @@ th {
   text-align: center;
   color: skyblue;
   font-size: 12px;
-}
-
-a {
-  color: rgb(55, 156, 196);
-  text-decoration: none;
 }
