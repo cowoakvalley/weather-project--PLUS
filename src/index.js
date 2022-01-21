@@ -33,7 +33,6 @@ function whichCity(event) {
   event.preventDefault();
   let city = document.querySelector("#city-input").value;
   searchCity(city);
-  currentTime();
 }
 
 function searchCity(city) {
@@ -44,6 +43,7 @@ function searchCity(city) {
 }
 
 function displayWeather(response) {
+  console.log(response.data);
   document.querySelector("#city-header").innerHTML = response.data.name;
   document.querySelector("#current-temperature").innerHTML =
     Math.round(celciusTemp);
@@ -51,7 +51,20 @@ function displayWeather(response) {
     response.data.wind.speed
   );
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  document.querySelector("#weather-description").innerHTML =
+    response.data.weather[0].description;
   celciusTemp = response.data.main.temp;
+  showRain(response);
+}
+
+function showRain(response) {
+  if (response.data.rain > 0) {
+    document.querySelector("#rain").innerHTML = Math.round(
+      response.data.rain.value
+    );
+  } else {
+    document.querySelector("#rain").innerHTML = 0;
+  }
 }
 
 let form = document.querySelector(".search-bar");

@@ -93,7 +93,16 @@ th {
   font-size: 18px;
   font-weight: 400;
   color: rgb(55, 156, 196);
-  padding: 0px 0px 30px 0px;
+}
+#weather-description {
+  color: rgb(71, 158, 192);
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 20px;
+  font-style: italic;
+}
+#weather-description::first-letter {
+  text-transform: capitalize;
 }
 
 .weatherProperties {
@@ -129,18 +138,19 @@ a {
   font-weight: 500;
 }
 
-.active:hover {
-  color: rgb(38, 103, 129);
+.active:hover,
+.active:focus,
+.active:active {
+  text-decoration: none;
+  color: inherit;
 }
 
-.date {
-  text-align: center;
-}
 .weather-emoji {
   font-size: 40px;
   display: block;
   text-align: center;
 }
+
 .coder {
   text-align: center;
   color: skyblue;
