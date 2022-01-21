@@ -45,22 +45,31 @@ function searchCity(city) {
 function displayWeather(response) {
   console.log(response.data);
   document.querySelector("#city-header").innerHTML = response.data.name;
-  document.querySelector("#current-temperature").innerHTML =
-    Math.round(celciusTemp);
+  document.querySelector("#current-temperature").innerHTML = Math.round(
+    response.data.main.temp
+  );
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#weather-description").innerHTML =
     response.data.weather[0].description;
-  celciusTemp = response.data.main.temp;
+  document
+    .querySelector("#weather-icon")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+  document
+    .querySelector("#weather-icon")
+    .setAttribute("alt", response.data.weather[0].description);
   showRain(response);
 }
 
 function showRain(response) {
   if (response.data.rain > 0) {
     document.querySelector("#rain").innerHTML = Math.round(
-      response.data.rain.value
+      response.data.precipitation.value
     );
   } else {
     document.querySelector("#rain").innerHTML = 0;
