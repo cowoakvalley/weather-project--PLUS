@@ -72,7 +72,7 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
-let button = document.querySelector("#get-current-weather");
+let button = document.querySelector("#get-current-weather-btn");
 button.addEventListener("click", getCurrentLocation);
 
 // celcius and fahrenheit
