@@ -28,6 +28,9 @@ function currentTime() {
 }
 currentTime();
 
+let form = document.querySelector(".search-bar");
+form.addEventListener("submit", whichCity);
+
 // search city
 function whichCity(event) {
   event.preventDefault();
@@ -45,9 +48,8 @@ function searchCity(city) {
 function displayWeather(response) {
   console.log(response.data);
   document.querySelector("#city-header").innerHTML = response.data.name;
-  document.querySelector("#current-temperature").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  document.querySelector("#current-temperature").innerHTML =
+    Math.round(celciusTemp);
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
@@ -64,6 +66,7 @@ function displayWeather(response) {
     .querySelector("#weather-icon")
     .setAttribute("alt", response.data.weather[0].description);
   showRain(response);
+  celciusTemp = response.data.main.temp;
 }
 
 function showRain(response) {
@@ -75,11 +78,6 @@ function showRain(response) {
     document.querySelector("#rain").innerHTML = 0;
   }
 }
-
-let form = document.querySelector(".search-bar");
-form.addEventListener("submit", whichCity);
-
-searchCity("Copenhagen");
 
 // current position button
 function searchLocation(position) {
@@ -122,3 +120,5 @@ linkCelcius.addEventListener("click", selectCelcius);
 
 let linkFahrenheit = document.querySelector("#fahrenheit-link");
 linkFahrenheit.addEventListener("click", selectFahrenheit);
+
+searchCity("Copenhagen");
