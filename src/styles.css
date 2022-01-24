@@ -162,3 +162,12 @@ a {
   font-size: 12px;
   padding: 20px;
 }
+
+.coder:hover {
+  color: skyblue;
+  text-decoration: none;
+}
+
+#github-link {
+  font-weight: 600;
+}
