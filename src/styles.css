@@ -42,7 +42,8 @@ body {
   color: rgb(228, 240, 242);
 }
 #weather-icon {
-  display: inline;
+  margin: 0 auto;
+  display: block;
   width: 130px;
   height: 130px;
 }
@@ -86,14 +87,6 @@ th {
   font-size: 60px;
 }
 
-.current-weather-emoji {
-  font-size: 80px;
-  margin: 20px;
-  padding: 20px;
-  width: 80px;
-  height: 50px;
-}
-
 #date {
   text-align: center;
   font-size: 18px;
@@ -134,7 +127,7 @@ a {
   font-size: 20px;
   color: rgb(55, 156, 196);
   text-decoration: none;
-  font-weight: 300;
+  font-weight: 200;
 }
 
 .active {
@@ -167,6 +160,10 @@ a {
 
 .weather-forecast-temp-min {
   opacity: 0.6;
+}
+
+#weather-forecast-icon {
+  width: 60px;
 }
 
 .coder {
