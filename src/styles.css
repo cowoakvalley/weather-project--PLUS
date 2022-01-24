@@ -2,7 +2,7 @@
   max-width: 70%;
   margin: 40px auto;
   border: solid 3px;
-  border-radius: 10%;
+  border-radius: 100px;
   border-color: rgb(32, 127, 165);
   background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
 }
@@ -42,9 +42,9 @@ body {
   color: rgb(228, 240, 242);
 }
 #weather-icon {
-  position: absolute;
-  float: right;
-  left: 350px;
+  display: inline;
+  width: 130px;
+  height: 130px;
 }
 
 #city-header {
@@ -77,6 +77,7 @@ th {
 
 .city {
   text-align: center;
+  position: relative;
   margin: auto;
   padding: 0px 30px;
   color: rgb(32, 127, 165);
@@ -150,10 +151,22 @@ a {
   color: inherit;
 }
 
-.weather-emoji {
-  font-size: 40px;
-  display: block;
+#weather-forecast {
   text-align: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  margin-left: 150px;
+  max-width: 70%;
+  color: rgb(32, 127, 165);
+  padding: 20px 0px;
+}
+
+.weather-forecast-date {
+  font-weight: 500;
+}
+
+.weather-forecast-temp-min {
+  opacity: 0.6;
 }
 
 .coder {

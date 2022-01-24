@@ -28,6 +28,51 @@ function currentTime() {
 }
 currentTime();
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
+  let forecastElement = document.querySelector("#weather-forecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+      <div class="col-2" id="weather-forecast-icon" width=80px>
+      <img
+      src="http://openweathermap.org/img/wn/${
+        forecastDay.weather[0].icon
+      }@2x.png"
+      alt="weather-forecast-icon"
+      width="80px"
+      />
+      <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
+        <div class="weather-forecast-temp">
+          <span class="weather-forecast-temp-max">${Math.round(
+            forecastDay.temp.max
+          )}°</span> /
+          <span class="weather-forecast-temp-min">${Math.round(
+            forecastDay.temp.min
+          )}°</span>
+        </div>
+      </div>
+    `;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+
+  forecastElement.innerHTML = forecastHTML;
+}
+
 let form = document.querySelector(".search-bar");
 form.addEventListener("submit", whichCity);
 
@@ -41,8 +86,17 @@ function whichCity(event) {
 function searchCity(city) {
   let apiKey = `53982876ff7765b389bc1a3133b58f62`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
+  linkCelcius.classList.add("active");
+  linkFahrenheit.classList.remove("active");
   axios.get(apiUrl).then(displayWeather);
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = `53982876ff7765b389bc1a3133b58f62`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function displayWeather(response) {
@@ -67,6 +121,8 @@ function displayWeather(response) {
     .querySelector("#weather-icon")
     .setAttribute("alt", response.data.weather[0].description);
   showRain(response);
+
+  getForecast(response.data.coord);
 }
 
 function showRain(response) {
@@ -120,3 +176,4 @@ let linkFahrenheit = document.querySelector("#fahrenheit-link");
 linkFahrenheit.addEventListener("click", selectFahrenheit);
 
 searchCity("Copenhagen");
+displayForecast();

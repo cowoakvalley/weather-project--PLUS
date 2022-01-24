@@ -15,112 +15,58 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
-    <div class="container">
-      <form class="search-bar">
-        <input
-          type="text"
-          placeholder="which city?"
-          id="city-input"
-          autofocus="on"
-        />
-        <input type="submit" value="search" id="city-search-btn" />
-        <button id="get-current-weather-btn">current place</button>
-      </form>
-      <img src="" alt="" id="weather-icon" />
-      <div class="current-weather">
-        <h1 class="city" id="city-header"></h1>
-      </div>
+    <div class="weather-app-wrapper">
+      <div class="container">
+        <form class="search-bar">
+          <input
+            type="text"
+            placeholder="which city?"
+            id="city-input"
+            autofocus="on"
+          />
+          <input type="submit" value="search" id="city-search-btn" />
+          <button id="get-current-weather-btn">current place</button>
+        </form>
 
-      <div class="row">
-        <ul class="weatherProperties">
-          <li id="date"></li>
-          <li id="weather-description"></li>
-          <li class="currentWeather" style="display: inline">
-            🌡 <span id="current-temperature"> </span>
-            <span id="celcius-fahrenheit">
-              <a href="#" class="active" id="celcius-link">°C</a> |
-              <a href="#" id="fahrenheit-link">°F</a>
-            </span>
-          </li>
-          <li class="currentWeather" style="display: inline">
-            ☔️ <span id="rain"></span> mm
-          </li>
-          <li class="currentWeather" style="display: inline">
-            💨 <span id="wind"></span> m/s
-          </li>
-          <li class="currentWeather" style="display: inline">
-            💧 <span id="humidity"></span> %
-          </li>
-        </ul>
+        <div class="current-weather">
+          <h1 class="city" id="city-header"></h1>
+          <img src="" alt="" id="weather-icon" />
+        </div>
+
+        <div class="row">
+          <ul class="weatherProperties">
+            <li id="date"></li>
+            <li id="weather-description"></li>
+            <li class="currentWeather" style="display: inline">
+              🌡 <span id="current-temperature"> </span>
+              <span id="celcius-fahrenheit">
+                <a href="#" class="active" id="celcius-link">°C</a> |
+                <a href="#" id="fahrenheit-link">°F</a>
+              </span>
+            </li>
+            <li class="currentWeather" style="display: inline">
+              ☔️ <span id="rain"></span> mm
+            </li>
+            <li class="currentWeather" style="display: inline">
+              💨 <span id="wind"></span> m/s
+            </li>
+            <li class="currentWeather" style="display: inline">
+              💧 <span id="humidity"></span> %
+            </li>
+          </ul>
+        </div>
+        <div id="weather-forecast"></div>
       </div>
-      <br />
-      <table class="table" align="center">
-        <thead>
-          <tr class="head" align="center">
-            <th scope="col"></th>
-            <th scope="col">max / min°</th>
-            <th scope="col">rain</th>
-            <th scope="col">wind</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row" class="date">
-              tomorrow <br />
-              <span class="weather-emoji">⛈</span>
-            </th>
-            <td>27 / 20 °</td>
-            <td>10mm</td>
-            <td>12 m/s</td>
-          </tr>
-          <tr>
-            <th scope="row" class="date">
-              17. dec <br />
-              <span class="weather-emoji">🌨</span>
-            </th>
-            <td>24 / 18 °</td>
-            <td>8mm</td>
-            <td>12 m/s</td>
-          </tr>
-          <tr>
-            <th scope="row" class="date">
-              18. dec <br />
-              <span class="weather-emoji">☁️</span>
-            </th>
-            <td>24 / 19 °</td>
-            <td>1mm</td>
-            <td>7 m/s</td>
-          </tr>
-          <tr>
-            <th scope="row" class="date">
-              19. dec <br />
-              <span class="weather-emoji">🌤</span>
-            </th>
-            <td>27 / 20 °</td>
-            <td></td>
-            <td>5 m/s</td>
-          </tr>
-          <tr>
-            <th scope="row" class="date">
-              20. dec <br />
-              <span class="weather-emoji"> ☀️</span>
-            </th>
-            <td>32 / 21 °</td>
-            <td></td>
-            <td>4 m/s</td>
-          </tr>
-        </tbody>
-      </table>
+      <p class="coder">
+        <a
+          href="https://github.com/cowoakvalley/weather-project--PLUS.git"
+          target="_blank"
+          class="coder"
+          id="github-link"
+          >Open source coded</a
+        ><br />by Karoline Egelund<br />Hosted on Netlify
+      </p>
     </div>
-    <p class="coder">
-      <a
-        href="https://github.com/cowoakvalley/weather-project--PLUS.git"
-        target="_blank"
-        class="coder"
-        id="github-link"
-        >Open source coded</a
-      ><br />by Karoline Egelund<br />Hosted on Netlify
-    </p>
     <script src="src/index.js"></script>
   </body>
 </html>
