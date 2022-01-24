@@ -47,6 +47,7 @@ function searchCity(city) {
 
 function displayWeather(response) {
   console.log(response.data);
+  celciusTemp = response.data.main.temp;
   document.querySelector("#city-header").innerHTML = response.data.name;
   document.querySelector("#current-temperature").innerHTML =
     Math.round(celciusTemp);
@@ -66,14 +67,11 @@ function displayWeather(response) {
     .querySelector("#weather-icon")
     .setAttribute("alt", response.data.weather[0].description);
   showRain(response);
-  celciusTemp = response.data.main.temp;
 }
 
 function showRain(response) {
   if (response.data.rain > 0) {
-    document.querySelector("#rain").innerHTML = Math.round(
-      response.data.precipitation.value
-    );
+    document.querySelector("#rain").innerHTML = Math.round(response.data.rain);
   } else {
     document.querySelector("#rain").innerHTML = 0;
   }
