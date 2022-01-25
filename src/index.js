@@ -107,7 +107,6 @@ function getForecast(coordinates) {
 }
 
 function displayWeather(response) {
-  console.log(response.data);
   celciusTemp = response.data.main.temp;
   document.querySelector("#city-header").innerHTML = response.data.name;
   document.querySelector("#current-temperature").innerHTML =
