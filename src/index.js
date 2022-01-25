@@ -100,7 +100,6 @@ function searchCity(city) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = `53982876ff7765b389bc1a3133b58f62`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   console.log(apiUrl);
@@ -134,6 +133,7 @@ function displayWeather(response) {
 }
 
 function showRain(response) {
+  console.log(response.data.rain);
   if (response.data.rain > 0) {
     document.querySelector("#rain").innerHTML = Math.round(response.data.rain);
   } else {
